@@ -6,8 +6,14 @@ This project is about detecting spam messages using machine learning algorithms.
 1. Download model.pkl
 2. Run the following code in Python:
 ```python
-import pickle
-pipeline = pickle.load(open('model.pkl', 'rb'))
+import dill
+nltk.download('punkt')
+nltk.download('punkt_tab')
+nltk.download('stopwords')
+
+# Load the model
+with open('model.pkl', 'rb') as f:
+    model = dill.load(f)
 
 # Test the model with a custom message
 message = input("Enter a message: ")
